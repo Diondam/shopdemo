@@ -1,0 +1,47 @@
+-- Create Employees table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+)
+
+-- Create EmployeeDetails table
+CREATE TABLE EmployeeDetails (
+    DetailID INT PRIMARY KEY,
+    EmployeeID INT UNIQUE, -- foreign key to Employees table
+    Address VARCHAR(100),
+    PhoneNumber VARCHAR(20)
+)
+
+-- Add foreign key constraint
+ALTER TABLE EmployeeDetails
+ADD CONSTRAINT FK_EmployeeDetails_Employees
+FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+
+
+
+ALTER TABLE Shop
+ADD userID int UNIQUE;
+
+
+
+
+
+ALTER TABLE Shop
+ADD userID int UNIQUE;
+
+
+
+-- Create EmployeeDetails table
+CREATE TABLE Shop (
+    shopID INT PRIMARY KEY,
+    userID INT UNIQUE, -- foreign key to Employees table
+    review NVARCHAR(200),
+    vote int
+)
+
+-- Add foreign key constraint
+ALTER TABLE Shop
+ADD CONSTRAINT OneNguoiOneShop
+FOREIGN KEY (userID) REFERENCES [User](userID)
